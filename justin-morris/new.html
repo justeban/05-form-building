@@ -56,12 +56,12 @@
            6. Some way to know if this article is a draft or is published -->
            <form id="new-article">
               <input type="text" id="title" placeholder="Title of your Article">
+              <textarea id="body" cols="20" rows="5" placeholder="article here..."></textarea>
               <input type="text" id="author" placeholder="Author Name">
               <input type="text" id="authorUrl" placeholder="Author URL">
               <input type="text" id="category" placeholder="Category">
-              <textarea id="body" cols="20" rows="5" placeholder="article here..."></textarea>
               <label>
-              <input id="publishedOn" type="checkbox" value="on"/>
+              <input id="publishedOn" type="checkbox"/>
               <span>Published</span>
               </label>
            </form>
@@ -94,7 +94,7 @@
       //  Hint: Look in articleView.js for a function that does this.
       articleView.initNewArticlePage();
       // COMMENT: What is this function doing? Why do we need it?
-      // PUT YOUR RESPONSE HERE
+      // This function is initializing functions that only occurs on the new article page. This allows the two pages to share the same JS file and not call unnecessary code. 
     </script>
   </body>
 </html>

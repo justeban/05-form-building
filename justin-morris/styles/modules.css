@@ -48,7 +48,8 @@
   text-decoration: none;
 }
 #article-export {
-  /* float: right; */
+  float: right;
+  width: 60%;
 }
 #article-export:after {
   content: ' ';
@@ -64,6 +65,9 @@
   display: block;
   opacity: .5;
   width: 100%;
+}
+#body {
+  font-size: 1em;
 }
 
 @media only screen and (min-width: 640px) {

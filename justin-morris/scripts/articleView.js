@@ -75,7 +75,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This function is called on new.html. It allows the same JS file to be used on each page but only allow certain functionality.
 articleView.initNewArticlePage = () => {
   // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
   $('.tab-content').show();
@@ -84,10 +84,14 @@ articleView.initNewArticlePage = () => {
   // Set up this "export" functionality. We can hide it for now, and show it once we have data to export.
   $('#article-json').on('focus', function(){
     $(this).select();
+    document.execCommand('copy');
   });
 
   // TODO: Add an event handler to update the preview and the export field if any inputs change.
   $('#new-article').on('change', 'input, textarea', articleView.create);
+
+  // Handle navigation on new page
+  articleView.handleMainNav();
 };
 
 articleView.create = () => {
@@ -102,7 +106,7 @@ articleView.create = () => {
     authorUrl: $('#authorUrl').val(),
     category: $('#category').val(),
     body: $('#body').val(),
-    publishedOn: $('#publishedOn').val()
+    publishedOn: new Date()
   };
 
   let article = new Article(articleObj);
@@ -118,7 +122,7 @@ articleView.create = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This function is called on index.html. Again this is so the two pages can share the same JS file but not call unnessecary functions and also prevents conflicting functions from being called.
 articleView.initIndexPage = () => {
   articles.forEach(article => $('#articles').append(article.toHtml()));
   articleView.populateFilters();
